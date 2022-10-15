@@ -11,9 +11,10 @@ import (
 )
 
 type Router struct {
-	Upstream string `yaml:"upstream"`
-	Username string `yaml:"username"`
-	Password string `yaml:"password"`
+	Upstream string        `yaml:"upstream"`
+	Timeout  time.Duration `yaml:"timeout"`
+	Username string        `yaml:"username"`
+	Password string        `yaml:"password"`
 }
 
 type Config struct {
@@ -28,7 +29,8 @@ func LoadConfig(cfgPath string) (*Config, error) {
 	out := &Config{
 		Debug: false,
 		Router: Router{
-			Upstream: "http://192.168.1.1",
+			Upstream: "http://172.16.1.1",
+			Timeout:  5 * time.Second,
 			Username: "mgts",
 			Password: os.Getenv("ROUTER_PASSWORD"),
 		},

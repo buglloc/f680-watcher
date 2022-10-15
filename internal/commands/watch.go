@@ -41,6 +41,7 @@ var watchCmd = &cobra.Command{
 				Password: cfg.Router.Password,
 			},
 			f860.WithDebug(cfg.Debug),
+			f860.WithTimeout(cfg.Router.Timeout),
 		)
 
 		instance := watcher.NewWatcher(
