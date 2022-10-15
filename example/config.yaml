@@ -1,0 +1,11 @@
+---
+router:
+  upstream: http://192.168.1.1
+  username: mgts
+  password: mtsoao
+check_period: 5m
+notify_script: /bin/true
+dhcp_sources:
+  LAN1: internet
+  LAN2: internet
+  LAN4: local
