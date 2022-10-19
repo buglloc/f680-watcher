@@ -43,6 +43,9 @@ var watchCmd = &cobra.Command{
 			f860.WithDebug(cfg.Debug),
 			f860.WithTimeout(cfg.Router.Timeout),
 		)
+		if err != nil {
+			return fmt.Errorf("unable to create f860 client: %w", err)
+		}
 
 		instance := watcher.NewWatcher(
 			f860c,
